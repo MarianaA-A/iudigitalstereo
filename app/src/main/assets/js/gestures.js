@@ -25,24 +25,15 @@ var app = {
 
     subeVol: function () {
         var radio = document.getElementById('emisora');
-        if (radio.volume < 0.9) {
-            radio.volume += 0.1;
-        } else {
-            radio.volume = 1.0;
-        }
+        radio.volume = Math.min(1.0, radio.volume + 0.1);
     },
 
     bajaVol: function () {
         var radio = document.getElementById('emisora');
-        if (radio.volume > 0.1) {
-            radio.volume -= 0.1;
-        } else {
-            radio.volume = 0.0;
-        }
+        radio.volume = Math.max(0.0, radio.volume - 0.1);
     }
 };
 
 document.addEventListener('DOMContentLoaded', function () {
     app.inicio();
-    console.log('Controles de la emisora listos.');
 }, false);
