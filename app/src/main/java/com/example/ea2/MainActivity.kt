@@ -13,9 +13,13 @@ class MainActivity : AppCompatActivity() {
 
         val myWebView: WebView = findViewById(R.id.visorWeb)
 
+        myWebView.setLayerType(android.view.View.LAYER_TYPE_SOFTWARE, null)
+
         val webSettings: WebSettings = myWebView.settings
         webSettings.javaScriptEnabled = true
         webSettings.domStorageEnabled = true
+        webSettings.mediaPlaybackRequiresUserGesture = false
+        webSettings.mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
 
         myWebView.webViewClient = WebViewClient()
 
